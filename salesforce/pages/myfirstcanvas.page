@@ -1,0 +1,17 @@
+<apex:page>
+    <button id="mybutton">click</button>
+    <!-- applicationNameも付けたほうが早いらしい -->
+    <apex:canvasApp applicationName="myfirstcanvas" developerName="myfirstcanvas"/>
+    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="/canvas/sdk/js/34.0/controller.js"></script>
+    <script>
+        Sfdc.canvas(function() {
+            Sfdc.canvas.controller.subscribe({name: 'pasonatquila.cv', onData: function(event) {
+                console.log('from canvas', event);
+            }});
+            $('#mybutton').on('click', function() {
+                Sfdc.canvas.controller.publish({name: 'pasonatquila.vf', payload: 'click!'});
+            });
+        });
+    </script>
+</apex:page>

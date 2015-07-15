@@ -1,0 +1,2 @@
+web: bundle exec thin -R config.ru start --threaded -p $NGROK_PORT
+ngrok: ngrok -authtoken $NGROK_AUTHTOKEN -subdomain=$NGROK_SUBDOMAIN $NGROK_PORT

@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    script src="//code.jquery.com/jquery-2.1.4.min.js"
+    script src="//rawgit.com/forcedotcom/SalesforceCanvasJavascriptSDK/v34.0/js/canvas-all.js"
+  body data-signed-request=@data
+    button#button click
+    coffee:
+      Sfdc.canvas ->
+        sr = $('body').data('signed-request')
+        Sfdc.canvas.client.subscribe sr.client, name: 'pasonatquila.vf', onData: (event) ->
+          console.log 'from vf', event
+        $('#button').on 'click', (event) ->
+          Sfdc.canvas.client.publish sr.client, name: 'pasonatquila.cv', payload: 'click!'

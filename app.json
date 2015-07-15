@@ -1,0 +1,11 @@
+{
+  "env": {
+    "CANVAS_CLIENT_SECRET": {
+      "description": "Your connected app's consumer secret."
+    },
+    "CANVAS_ORIGIN": {
+      "description": "Your visualforce instance origin. ex: https://c.ap.visual.force.com",
+      "required": false
+    }
+  }
+}
